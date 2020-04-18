@@ -1,11 +1,18 @@
 import * as types from '../constants/actionTypes';
 
 const initialState = {
-  products: []
+  productsList: []
 };
 
 const productsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case(types.GET_PRODUCTS):
+    const fetchedList = action.payload;
+    
+    return{
+      ...state, 
+      productsList: fetchedList
+    }
     default:
       return {
         ...state
