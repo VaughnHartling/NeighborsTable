@@ -1,9 +1,10 @@
 const { Pool } = require('pg');
 require('dotenv').config()
 
+const POSTGRES = process.env.PG_URI
 // create a new pool here using the connection string above
 const pool = new Pool({
-  connectionString: PG_URI
+  connectionString: POSTGRES
 });
 
 // read portion of CRUD 

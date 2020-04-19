@@ -1,4 +1,5 @@
 import * as types from '../constants/actionTypes';
+import axios from 'axios'
 
 const dummyProducts = [
   {
@@ -18,12 +19,12 @@ const dummyProducts = [
   }
 ]
 
-
-export const getProducts =() => {
-  return ( 
-    {
-      type: types.GET_PRODUCTS, 
-      payload: dummyProducts
-    }
-  )
-} 
+export const getProducts = () => {
+  return (dispatch) => {
+    axios.get(`/api/92336/products`)
+    .then((res) => {
+      dispatch({type: types.GET_PRODUCTS, payload: dummyProducts})
+    })
+    .catch(err => console.log(err))
+  }
+}
