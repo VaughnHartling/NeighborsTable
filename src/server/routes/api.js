@@ -1,9 +1,18 @@
 const express = require('express');
+const db = require('../models/models');
 
 const router = express.Router();
 
 // home/zip search
-router.get('/', (req, res) => {
+router.get('/products', (req, res) => {
+  const query = `
+    SELECT * FROM members
+  `
+  db.query(query)
+  .then((data) => {
+    console.log(data)
+    res.json(data)
+   } )
   console.log('hit home');
 });
 
