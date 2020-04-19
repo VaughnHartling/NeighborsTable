@@ -1,8 +1,7 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom'
 
 class Home extends React.Component {
-
 
   render() {
     return(
@@ -12,10 +11,10 @@ class Home extends React.Component {
           <input type="text" />
           <button type="submit">Submit</button>
         </form>
+        <Link to="/products">Remove me!</Link>
       </div>
     )
   }
 }
-
 
 export default Home;
