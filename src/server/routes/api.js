@@ -9,7 +9,7 @@ const router = express.Router();
 // products index
 //this route may need to change -- this is just a placeholder
 router.get('/:zip/products',productControllers.getZip,(req, res) => {
-  res.send(200).json(res.locals.products)
+  res.status(200).json(res.locals.products)
 });
 // product add
 // this route may need to change -- this is just a placeholder

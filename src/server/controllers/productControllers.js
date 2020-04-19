@@ -8,7 +8,7 @@ FROM product p
 INNER JOIN seller s
 ON p.seller_id = s.seller_id
 WHERE p.zip = $1`
-const zip = [req.param.zip]; 
+const zip = [req.params.zip]; 
 
 console.log(zip)
 
