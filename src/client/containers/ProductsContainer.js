@@ -20,18 +20,16 @@ class ProductsContainer extends React.Component {
     this.props.getProducts()
   }
 
-
   render() {
     return (
       <div>
         <Switch>
           <Route exact path="/" render={()=><Home />}/>
-          <Route exact path="/products" render={()=><ProductsList products={this.props.products} />} />
+          <Route exact path="/products" render={()=> <ProductsList products={this.props.products} />} />
         </Switch>
       </div>
     )
   }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsContainer);
