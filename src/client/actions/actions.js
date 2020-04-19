@@ -21,7 +21,7 @@ const dummyProducts = [
 
 export const getProducts = () => {
   return (dispatch) => {
-    axios.get(`/api/products`)
+    axios.get(`/api/92336/products`)
     .then((res) => {
       dispatch({type: types.GET_PRODUCTS, payload: dummyProducts})
     })
