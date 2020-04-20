@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Product from './Product';
 
 const ProductsList = ({ products }) => {
@@ -9,7 +10,10 @@ const ProductsList = ({ products }) => {
     })
   }
     return(
-      <div style={styles.container}>{renderProducts()}</div>
+      <> 
+        <Link to='/new'>Add Product</Link>
+        <div style={styles.container}>{renderProducts()}</div>
+      </>
     )
 }
 

@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 class Home extends React.Component {
-  state = {}
+  state = {
+    submitted: false
+  }
   
   //sets state of this component property to the name of the input field and grabs value of input field
   handleChange = (e) => {
@@ -14,17 +16,19 @@ class Home extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.getProducts(this.state.zip)
+    e.target.reset()
+    this.setState({submitted: true})
   }
 
   render() {
-    return(
+    if(this.state.submitted === true) return <Redirect to='/products' />
+    else return(
       <div>
         <h1>Get Local!</h1>
-        <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-          <input type="text" name='zip'/>
+        <form  onSubmit={this.handleSubmit}>
+          <input type="text" name='zip' onChange={this.handleChange}/>
           <button type="submit">Submit</button>
         </form>
-        <Link to="/products">Remove me!</Link>
       </div>
     )
   }
