@@ -15,25 +15,24 @@ console.log(zip)
 
 db.query(zipGetReq, zip)
   .then((products) => {
-    //rows is  a property on the response obj from the promise obj. It is an array of objects 
-    console.log(products.rows)
     res.locals.products = products.rows
+    console.log(res.locals.products)
     next()
   })
-  //next({e: 'error on controllers get zip'}
   .catch(e => console.log(e))
 }
 // 
 productControllers.productSave = (req, res, next) => {
-  const { title, price, zip, description, sellerId } = req.body.product
+  const { title, price, zip, description } = req.body.product
+  const sellerId = res.locals.seller_id
   const values = [title, price, zip, description, sellerId]
+  console.log('this is our sellerId in productSave: ', sellerId)
   // create portion of CRUD 
   //on insert you need to pass in the res.locals id from sellSave
   const saveProduct = ` INSERT INTO product(title,price,zip,description,seller_id)
   VALUES ($1,$2,$3,$4,$5)`;
   db.query(saveProduct,values)
     .then(products => {
-      console.log(products.rows[0])  
       next()
     })
     .catch(e => {
@@ -43,18 +42,20 @@ productControllers.productSave = (req, res, next) => {
   }
 
 productControllers.sellerSave = (req, res, next) => {
-    const { name, zip } = req.body;
-    const values = [name, zip];
-    const sellerSaveQuery = ` INSERT INTO select(name,zip)
-    VALUES ($1,$2)`;
-    //after insert
-      //return the id
+    const { name, zip, about } = req.body.product;
+    const values = [name, zip, about];
+    const sellerSaveQuery = ` INSERT INTO seller(name,zip,about)
+    VALUES ($1,$2, $3) 
+    RETURNING seller_id`;
   db.query(sellerSaveQuery, values)
     .then(sellers => {
-      //store the id in res.locals
-      console.log(sellers.rows[0])
+      res.locals.seller_id = sellers.rows[0].seller_id;
+      res.locals.about = sellers.rows[0].about
       next()
     })
-    .catch(e => next({e: 'error on controller seller save'}))
+    .catch(e => {
+      console.log("this is our error: ", e),
+      next({e: 'error on controller seller save'})
+    })
   };
   module.exports = productControllers;
