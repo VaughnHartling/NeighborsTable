@@ -1,3 +1,7 @@
+html {
+  background-color: #eaeaea;
+}
+
 #zip-container {
 
   background: black;
@@ -9,4 +13,5 @@
   align-items: center;
   justify-content: center;
 }
+
 

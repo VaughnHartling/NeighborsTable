@@ -32,8 +32,8 @@ class Home extends React.Component {
         <div style={styles.callToAction}>
         <h1 style={styles.header}>Welcome to Neighbor's Table!</h1>
         <form onChange={this.handleChange} onSubmit={this.handleSubmit} style={styles.form}>
-          <input type="text" name='zip' style={styles.input}/>
-          <button type="submit" style={styles.button}>Submit</button>
+          <input type="text" name='zip' placeHolder='enter your zip' style={styles.input}/>
+          <button type="submit" style={styles.button}>Search</button>
         </form>
         </div>
 
@@ -63,15 +63,15 @@ const styles = {
   
   },
   callToAction:{
-    background: 'aliceblue',
-    opacity :'.9',
+    background: '#EAEAEA',
+    opacity :'.95',
     minWidth: '600px',
     minHeight: '400px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-   
-    borderRadius: '4px'
+    justifyContent: 'center',
+    borderRadius: '8px',
     // backdropFilter: 'blur(0.8)'
     // // width: '100%',
     // // height:'100%',
@@ -81,13 +81,14 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    marginTop: '1.5rem'
+    marginTop: '1.2rem'
+
   },
   input: {
     minWidth: '300px',
-    height: '2.5rem',
     fontSize: '1.5rem',
-  
+    padding: '.8rem',
+    color: 'gray'
   },
   button: {
     minWidth: '150px',
@@ -97,13 +98,15 @@ const styles = {
     padding: '8px 16px',
     cursor: 'pointer',
     margin: '2.5rem',
-    background:'#00AB08',
-    color: 'aliceblue'
+    background:'#3F9E4D',
+    color: 'aliceblue',
+    opacity: '.9'
   },
   header: {
-    fontFamily: 'Annie Use Your Telescope',
-    fontSize: '3.5rem',
-    color: '#00AB08',
+    fontFamily: 'Varela Round',
+    fontSize: '2.3rem',
+    color: '#3F9E4D',
     fontWeight: '900',
+    opacity: '.9'
   }
 }
