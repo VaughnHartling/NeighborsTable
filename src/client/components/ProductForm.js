@@ -22,35 +22,55 @@ class ProductForm extends React.Component {
     else return (
       <div>
         <nav style={styles.nav}>
-            <Link to='/' style={styles.navLinkHome}>Neighbor's Table</Link>
+          <div>
+            <Link to='/' style={styles.navLinkHome}>
+              <img src="../../../public/assets/NeighborsTableUC.png" height="150"></img>
+            </Link>
+          </div>
         </nav>
-        <div>
-          <form style={styles.formContainer} onChange={this.handleChange} onSubmit={this.handleSubmit}> 
-            <div>
-              Name
+        <div style={styles.formContainer} className="formContainer">
+          <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
+            <div style={styles.subFormDiv}>
+              <h3 style={styles.h3}>Seller Description</h3>
+              <div style={styles.inputDiv}>
+                <label>Name</label>
+                <input style={styles.input} name='name'/>
+              </div>
+              <div style={styles.inputDiv}>
+                <label>Email</label>
+                <input style={styles.input} name='email'/>
+              </div>
+              <div style={styles.inputDiv}>
+                <label>Phone</label>
+                <input style={styles.input} name='phone'/>
+              </div>
+              <div style={styles.inputDiv}>
+                <label>About</label>
+                <input style={styles.input} name='about'/>
+              </div>
+              <div style={styles.inputDiv}>
+                <label>Zip</label>
+                <input style={styles.input} name='zip'/>
+              </div>
+            </div> 
+            <div style={styles.subFormDiv}>
+              <h3 style={styles.h3}>Product Info</h3>
+              <div style={styles.inputDiv}>
+                <label>Product</label>
+                <input style={styles.input} name='product'/>
+              </div>
+              <div style={styles.inputDiv}>
+                <label>Price</label>
+                <input style={styles.input} name='price'/>
+              </div>
+              <div style={styles.inputDiv}>
+                <label>Description</label>
+                <input style={styles.input} name='description'/>
+              </div>
             </div>
-            <input style={styles.input} name='name'/>
-            <div>
-              About
+            <div style={styles.buttonDiv}>
+                <button style={styles.button}type='submit'>Submit</button>
             </div>
-            <input style={styles.input} name='about'/>
-            <div>
-              Zip
-            </div>
-            <input style={styles.input} name='zip'/>
-            <div>
-              Title
-            </div>
-            <input style={styles.input} name='title'/>
-            <div>
-              Description
-            </div>
-            <input style={styles.input} name='description'/>
-            <div>
-              Price
-            </div>
-            <input style={styles.input} name='price'/>
-            <button style={styles.button}type='submit'>Submit</button>
           </form>
         </div>
       </div>
@@ -65,12 +85,16 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     width: '10rem',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    marginTop: '10rem',
   },
   input: {
-    minWidth: '300px',
-    fontSize: '1.5rem',
-    padding: '.8rem'
+    minWidth: '200px',
+    fontSize: '1rem',
+    marginLeft: '2rem',
+    color: 'grey',
   },
   button: {
     minWidth: '150px',
@@ -105,5 +129,31 @@ const styles = {
     color: '#EAEAEA',
     fontWeight: '900',
     textDecoration: 'none',
+  },
+  inputDiv: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    margin: '.5rem'
+  },
+  subFormDiv: {
+    display: 'flex',
+    flexDirection: 'column',
+    background: 'white',
+    boxShadow: '0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)',
+    padding: '1rem',
+    marginTop: '2rem',
+    borderRadius: '8px',
+    fontFamily: 'Open Sans',
+    fontSize: '1rem',
+    paddingBottom: '2rem',
+  },
+  buttonDiv: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  h3: {
+    textAlign: 'center',
+
   }
 }
