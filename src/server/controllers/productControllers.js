@@ -28,6 +28,7 @@ productControllers.productSave = (req, res, next) => {
   const { title, price, zip, description, sellerId } = req.body.product
   const values = [title, price, zip, description, sellerId]
   // create portion of CRUD 
+  //on insert you need to pass in the res.locals id from sellSave
   const saveProduct = ` INSERT INTO product(title,price,zip,description,seller_id)
   VALUES ($1,$2,$3,$4,$5)`;
   db.query(saveProduct,values)
@@ -46,8 +47,11 @@ productControllers.sellerSave = (req, res, next) => {
     const values = [name, zip];
     const sellerSaveQuery = ` INSERT INTO select(name,zip)
     VALUES ($1,$2)`;
+    //after insert
+      //return the id
   db.query(sellerSaveQuery, values)
     .then(sellers => {
+      //store the id in res.locals
       console.log(sellers.rows[0])
       next()
     })
