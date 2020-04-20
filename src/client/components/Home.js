@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 class Home extends React.Component {
-  state = {}
+  state = {
+    submitted: false
+  }
   
   //sets state of this component property to the name of the input field and grabs value of input field
   handleChange = (e) => {
@@ -14,11 +16,14 @@ class Home extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.getProducts(this.state.zip)
+    e.target.reset()
+    this.setState({submitted: true})
   }
 // https://d3u03kk87rjfaq.cloudfront.net/wp-content/uploads/2009/06/03145943/farmers-markets.jpg
 //'https://southsoundmag.com/wp-content/uploads/2019/06/Photo-by-Daria-Shevtsova-via-Pexels-e1559759504402-1024x507.jpg'
 //'https://render.fineartamerica.com/images/rendered/default/canvas-print/12/6.5/mirror/break/images-medium/farmers-market-nancy-pahl-canvas-print.jpg' 
   render() {
+<<<<<<< HEAD
     return(
       <div style={styles.container}>
         <nav style={styles.nav}></nav>
@@ -34,6 +39,16 @@ class Home extends React.Component {
 
         </div>
         
+=======
+    if(this.state.submitted === true) return <Redirect to='/products' />
+    else return(
+      <div>
+        <h1>Get Local!</h1>
+        <form  onSubmit={this.handleSubmit}>
+          <input type="text" name='zip' onChange={this.handleChange}/>
+          <button type="submit">Submit</button>
+        </form>
+>>>>>>> d21e0524c61b2c906235af847f2b40b91070c282
       </div>
     )
   }
