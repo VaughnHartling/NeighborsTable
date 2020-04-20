@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom';
+import '../../../public/styles.css';
 
 class Home extends React.Component {
   state = {
@@ -29,12 +30,11 @@ class Home extends React.Component {
         <nav style={styles.nav}></nav>
         <div style={styles.hero}>
         <div style={styles.callToAction}>
-        <h1 style={styles.header}>Welcome to neighbors table!</h1>
+        <h1 style={styles.header}>Welcome to Neighbor's Table!</h1>
         <form onChange={this.handleChange} onSubmit={this.handleSubmit} style={styles.form}>
-          <input type="text" name='zip'/>
-          <button type="submit">Submit</button>
+          <input type="text" name='zip' style={styles.input}/>
+          <button type="submit" style={styles.button}>Submit</button>
         </form>
-        <Link to="/products">Remove me!</Link>
         </div>
 
         </div>
@@ -51,8 +51,8 @@ const styles = {
     color:'green'
   },
   hero:{
-    backgroundImage: 'url(' + 'https:southsoundmag.com/wp-content/uploads/2019/06/Photo-by-Daria-Shevtsova-via-Pexels-e1559759504402-1024x507.jpg' + ')',
-    height: '100vh',
+  backgroundImage: 'url(' + 'https:southsoundmag.com/wp-content/uploads/2019/06/Photo-by-Daria-Shevtsova-via-Pexels-e1559759504402-1024x507.jpg' + ')',
+  height: '100vh',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
@@ -60,12 +60,50 @@ const styles = {
   flexDirection: 'column',
   justifyContent:'center',
   alignItems:'center',
-},
-callToAction:{
-  background: 'black',
-  opacity :'.7',
-  // width: '100%',
-  // height:'100%',
-  position:'absolute',
-}
+  
+  },
+  callToAction:{
+    background: 'aliceblue',
+    opacity :'.9',
+    minWidth: '600px',
+    minHeight: '400px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+   
+    borderRadius: '4px'
+    // backdropFilter: 'blur(0.8)'
+    // // width: '100%',
+    // // height:'100%',
+    // position:'absolute',
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginTop: '1.5rem'
+  },
+  input: {
+    minWidth: '300px',
+    height: '2.5rem',
+    fontSize: '1.5rem',
+  
+  },
+  button: {
+    minWidth: '150px',
+    fontSize: '1.2rem',
+    fontWeight: '500',
+    borderRadius: '5px',
+    padding: '8px 16px',
+    cursor: 'pointer',
+    margin: '2.5rem',
+    background:'#00AB08',
+    color: 'aliceblue'
+  },
+  header: {
+    fontFamily: 'Annie Use Your Telescope',
+    fontSize: '3.5rem',
+    color: '#00AB08',
+    fontWeight: '900',
+  }
 }
