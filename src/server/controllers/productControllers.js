@@ -2,12 +2,13 @@ const db = require('../models/models.js');
 const productControllers = {};
 // read portion of CRUD 
 productControllers.getZip = (req,res,next) =>{
-console.log('hit route')
+
 const zipGetReq = `SELECT p.title,p.price,p.zip,p.description,s.name,s.about
 FROM product p
 INNER JOIN seller s
 ON p.seller_id = s.seller_id
 WHERE p.zip = $1`
+
 const zip = [req.params.zip]; 
 
 console.log(zip)
@@ -24,8 +25,8 @@ db.query(zipGetReq, zip)
 }
 // 
 productControllers.productSave = (req, res, next) => {
-  const { title, price, zip, description, seller_id } = req.body;
-  const values = [title, price, zip, description, seller_id]
+  const { title, price, zip, description, sellerId } = req.body.product
+  const values = [title, price, zip, description, sellerId]
   // create portion of CRUD 
   const saveProduct = ` INSERT INTO product(title,price,zip,description,seller_id)
   VALUES ($1,$2,$3,$4,$5)`;
@@ -34,7 +35,10 @@ productControllers.productSave = (req, res, next) => {
       console.log(products.rows[0])  
       next()
     })
-    .catch(e => next({e: 'error on controller product save'}))
+    .catch(e => {
+      console.log(e)
+      next({e: 'error on controller product save'})
+    })
   }
 
 productControllers.sellerSave = (req, res, next) => {

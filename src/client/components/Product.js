@@ -1,16 +1,17 @@
 import React from 'react';
 
-const Product = ({ name, price, description }) => {
+const Product = ({ name, price, about, title }) => {
     return (
         <div style={styles.card}>
           <div style={styles.photoContainer}>
             <img src='https://picsum.photos/200/300' style={styles.image}/>
           </div>
           <div>
-            <h3 style={styles.headerFont}>Seller</h3>
-            <h2 style={styles.headerFont}>{name}</h2>
-            <h1 style={styles.headerFont}>{price}</h1>
-            <p style={styles.description}>{description}</p>
+            <h3 style={styles.headerFont}>{title}</h3>
+            <h2 style={styles.headerFont}></h2>
+            <h1 style={styles.headerFont}>${price}</h1>
+            <p style={styles.headerFont}>{name}</p>
+            <p style={styles.description}>{about}</p>
           </div>
         </div>
     )

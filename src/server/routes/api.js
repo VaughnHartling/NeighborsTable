@@ -13,7 +13,7 @@ router.get('/:zip/products',productControllers.getZip,(req, res) => {
 });
 // product add
 // this route may need to change -- this is just a placeholder
-router.post('/:zip/products',
+router.post('/products/new',
 productControllers.productSave, // will save client info to the two tables tb, the product and the seller 
 productControllers.sellerSave,
 productControllers.getZip, // will send updated zip code match to the front end 
