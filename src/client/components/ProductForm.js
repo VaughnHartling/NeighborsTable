@@ -34,10 +34,10 @@ class ProductForm extends React.Component {
             Zip
           </div>
           <input style={styles.input} name='zip'/>
-          <div>
+          {/* <div>
             Seller ID
           </div>
-          <input style={styles.input} name='sellerId'/>
+          <input style={styles.input} name='sellerId'/> */}
           <div>
             Title
           </div>
