@@ -16,7 +16,7 @@ db.query(zipGetReq, zip)
   .then((products) => {
     //rows is  a property on the response obj from the promise obj. It is an array of objects 
     console.log(products.rows)
-    res.locals.products = products.rows[0]
+    res.locals.products = products.rows
     next()
   })
   //next({e: 'error on controllers get zip'}

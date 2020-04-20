@@ -9,8 +9,16 @@ const ProductsList = ({ products }) => {
     })
   }
     return(
-      <div style={{display: 'flex', flexWrap: 'wrap'}}>{renderProducts()}</div>
+      <div style={styles.container}>{renderProducts()}</div>
     )
 }
 
 export default ProductsList;
+
+const styles = {
+  container: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
+    gridGap: '1rem'
+  }
+}

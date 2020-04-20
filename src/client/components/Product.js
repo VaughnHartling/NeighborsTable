@@ -2,7 +2,6 @@ import React from 'react';
 
 const Product = ({ name, price, description }) => {
     return (
-      <>
         <div style={styles.card}>
           <div style={styles.photoContainer}>
             <img src='https://picsum.photos/200/300' style={styles.image}/>
@@ -14,7 +13,6 @@ const Product = ({ name, price, description }) => {
             <p style={styles.description}>{description}</p>
           </div>
         </div>
-      </>
     )
   };
 
@@ -36,10 +34,8 @@ const styles = {
   },
   card: {
     display: 'flex',
-    width: '650px',
     height: '375px',
     background: 'white',
-    margin: '0 auto',
     top: '50%',
     left: '50%',
     boxShadow: '0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)',

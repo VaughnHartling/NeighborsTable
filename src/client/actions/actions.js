@@ -19,11 +19,12 @@ const dummyProducts = [
   }
 ]
 
-export const getProducts = () => {
+export const getProducts = (zip) => {
   return (dispatch) => {
-    axios.get(`/api/92336/products`)
+    axios.get(`/api/${zip}/products`)
     .then((res) => {
-      dispatch({type: types.GET_PRODUCTS, payload: dummyProducts})
+      console.log(res.data)
+      dispatch({type: types.GET_PRODUCTS, payload: res.data})
     })
     .catch(err => console.log(err))
   }
