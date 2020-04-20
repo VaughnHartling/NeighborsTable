@@ -4,9 +4,9 @@ import ProductsContainer from './containers/ProductsContainer';
 export default class App extends Component {
   render() {
     return (
-      <>
+      <div>
         <ProductsContainer />
-      </>
+      </div>
     );
   }
 }

@@ -11,20 +11,16 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getProducts: () => dispatch(actions.getProducts())
+  getProducts: (zip) => dispatch(actions.getProducts(zip))
 })
 
 class ProductsContainer extends React.Component {
-
-  componentDidMount() {
-    this.props.getProducts()
-  }
 
   render() {
     return (
       <div>
         <Switch>
-          <Route exact path="/" render={()=><Home />}/>
+          <Route exact path="/" render={()=><Home getProducts={this.props.getProducts}/>}/>
           <Route exact path="/products" render={()=> <ProductsList products={this.props.products} />} />
         </Switch>
       </div>
