@@ -3,7 +3,7 @@ const productControllers = {};
 // read portion of CRUD 
 productControllers.getZip = (req,res,next) =>{
 
-const zipGetReq = `SELECT p.title,p.price,p.zip,p.description,s.name,s.about
+const zipGetReq = `SELECT p.title,p.price,p.zip,p.description,s.name,s.about,s.phone,s.email
 FROM product p
 INNER JOIN seller s
 ON p.seller_id = s.seller_id
@@ -42,10 +42,10 @@ productControllers.productSave = (req, res, next) => {
   }
 
 productControllers.sellerSave = (req, res, next) => {
-    const { name, zip, about } = req.body.product;
-    const values = [name, zip, about];
-    const sellerSaveQuery = ` INSERT INTO seller(name,zip,about)
-    VALUES ($1,$2, $3) 
+    const { name, zip, about, phone, email } = req.body.product;
+    const values = [name, zip, about, phone, email];
+    const sellerSaveQuery = ` INSERT INTO seller(name,zip,about,phone,email)
+    VALUES ($1,$2,$3,$4,$5) 
     RETURNING seller_id`;
   db.query(sellerSaveQuery, values)
     .then(sellers => {
