@@ -31,6 +31,6 @@ const styles = {
     float: 'right',
     fontSize: '28px',
     fontWeight: 'bold',
-    curser: 'pointer'
+    cursor: 'pointer'
   }
 }
