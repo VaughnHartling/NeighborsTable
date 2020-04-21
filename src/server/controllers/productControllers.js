@@ -55,5 +55,5 @@ productControllers.sellerSave = (req, res, next) => {
       console.log("this is our error: ", e),
       next({e: 'error on controller seller save'})
     })
-  };
-  module.exports = productControllers;
+  }
+      
