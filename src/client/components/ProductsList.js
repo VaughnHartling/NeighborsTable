@@ -12,8 +12,12 @@ const ProductsList = ({ products }) => {
     return(
       <> 
         <nav style={styles.nav}>
-          <Link to='/' style={styles.navLinkHome}>Neighbor's Table</Link>
-          <Link to='/new' style={styles.navLinkProduct}>list products</Link>
+          <div>
+            <Link to='/' style={styles.navLinkHome}>
+              <img src="../../../public/assets/NeighborsTableUC.png" height="150"></img>
+            </Link>
+          </div>
+          <Link to='/new' style={styles.navLinkProduct}>Create New Listing</Link>
         </nav>
         <div style={styles.container}>{renderProducts()}</div>
       </>
@@ -27,7 +31,7 @@ const styles = {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
     gridGap: '1rem',
-    margin: '8rem 2rem'
+    margin: '10rem 2rem'
   },
   nav: {
     display: 'flex',

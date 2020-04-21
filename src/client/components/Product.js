@@ -64,7 +64,8 @@ const styles = {
     top: '50%',
     left: '50%',
     boxShadow: '0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)',
-    overflow: 'auto'
+    overflow: 'auto',
+    borderRadius: '4px',
   },
   description: {
     padding: '30px',
