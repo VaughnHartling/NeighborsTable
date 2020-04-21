@@ -1,15 +1,39 @@
-import React from 'react';
+import React, {useState} from 'react';
+import SellerModal from './SellerModal';
 
-const Product = ({ name, price, about, title }) => {
-    return (
-        <div style={styles.card}>
+const Product = ({ name, price, about, title, descripton, email, phone }) => {
+    const [toggle, setToggle] = useState(false)
+
+    const handleModal = () => {
+      setToggle(!toggle)
+    }
+
+    if(toggle) return (
+      <div style={styles.card} onClick={handleModal}>
+        <div style={styles.modal}>
+          <SellerModal closeModal={handleModal} about={about} phone={phone} email={email} name={name}/>
+        </div>
+      <div style={styles.photoContainer}>
+        <img src='https://picsum.photos/200/300' style={styles.image}/>
+      </div>
+      <div>
+        <h3 style={styles.headerFont}>{title}</h3>
+        <h2 style={styles.headerFont}></h2>
+        <h1 style={styles.headerFont}>${price}</h1>
+        <p style={styles.headerFont}>{name}</p>
+        <p style={styles.description}>{about}</p>
+      </div>
+    </div>
+    )
+    else return (
+        <div style={styles.card} onClick={handleModal}>
           <div style={styles.photoContainer}>
             <img src='https://picsum.photos/200/300' style={styles.image}/>
           </div>
           <div>
             <h3 style={styles.headerFont}>{title}</h3>
             <h2 style={styles.headerFont}></h2>
-            <h1 style={styles.headerFont}>${price}</h1>
+            <h1 style={styles.headerFont}>{price}</h1>
             <p style={styles.headerFont}>{name}</p>
             <p style={styles.description}>{about}</p>
           </div>
@@ -49,5 +73,18 @@ const styles = {
     borderLeft: '2px solid #efefef',
     color: '#838383',
     fontFamily: 'Open Sans',
-  }
+  },
+    modal: {
+      display: 'block',
+      position: 'fixed',
+      zIndex: '1',
+      paddingTop: '100px', 
+      left: 0,
+      top: 0,
+      width: '100%',
+      height: '100%',
+      overflow: 'auto', 
+      backgroundColor: '#CDCDCD',
+      opacity: '.95'
+    },
 };
