@@ -2,7 +2,7 @@ const db = require('../models/models.js');
 const productControllers = {};
 // read portion of CRUD 
 productControllers.getZip = (req,res,next) =>{
-
+console.log('hit the get request')
 const zipGetReq = `SELECT p.title,p.price,p.zip,p.description,s.name,s.about,s.phone,s.email
 FROM product p
 INNER JOIN seller s
@@ -11,12 +11,9 @@ WHERE p.zip = $1`
 
 const zip = [req.params.zip]; 
 
-console.log(zip)
-
 db.query(zipGetReq, zip)
   .then((products) => {
     res.locals.products = products.rows
-    console.log(res.locals.products)
     next()
   })
   .catch(e => console.log(e))
