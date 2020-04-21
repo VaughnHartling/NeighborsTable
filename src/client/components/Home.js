@@ -51,7 +51,7 @@ const styles = {
     color:'green'
   },
   hero:{
-  backgroundImage: 'url(' + 'https:southsoundmag.com/wp-content/uploads/2019/06/Photo-by-Daria-Shevtsova-via-Pexels-e1559759504402-1024x507.jpg' + ')',
+  backgroundImage: 'url(' + 'https://www.tranquilitylabs.com/wp-content/uploads/2016/07/bigstock-Female-Stall-Holder-At-Farmers-87399266-1024x683.jpg' + ')',
   height: '100vh',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',

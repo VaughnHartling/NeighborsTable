@@ -39,6 +39,7 @@ productControllers.productSave = (req, res, next) => {
   }
 
 productControllers.sellerSave = (req, res, next) => {
+    console.log(req.body.product)
     const { name, zip, about, phone, email } = req.body.product;
     const values = [name, zip, about, phone, email];
     const sellerSaveQuery = ` INSERT INTO seller(name,zip,about,phone,email)

@@ -18,7 +18,7 @@ class ProductForm extends React.Component {
   }
 
   render() {
-    if(this.state.submitted === true) return <Redirect to='/products'/>
+    if(this.state.submitted === true) return <Redirect to='/'/>
     else return (
       <div>
         <nav style={styles.nav}>
@@ -57,7 +57,7 @@ class ProductForm extends React.Component {
               <h3 style={styles.h3}>Product Info</h3>
               <div style={styles.inputDiv}>
                 <label>Product</label>
-                <input style={styles.input} name='product'/>
+                <input style={styles.input} name='title'/>
               </div>
               <div style={styles.inputDiv}>
                 <label>Price</label>

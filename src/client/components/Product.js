@@ -46,7 +46,8 @@ export default Product;
 const styles = {
   headerFont: {
     color: '#444444',
-    fontFamily: 'Open Sans'
+    fontFamily: 'Open Sans',
+    cursor: 'pointer',
   },
   photoContainer: {
     padding: '30px',
